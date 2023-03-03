@@ -1,0 +1,9 @@
+{
+  "lottoApiApp": {
+    "ConfigStatut": {
+      "null": "",
+      "ACTIVE": "ACTIVE",
+      "CLOSED": "CLOSED"
+    }
+  }
+}

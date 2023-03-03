@@ -1,0 +1,39 @@
+{
+  "angularJSSuffix": "chad",
+  "applications": "*",
+  "changelogDate": "20230303214812",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "state_configuration",
+  "fields": [
+    {
+      "fieldName": "startHour",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "endHour",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "statut",
+      "fieldType": "ConfigStatut",
+      "fieldValues": "ACTIVE,CLOSED"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "StateConfiguration",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "state",
+      "otherEntityRelationshipName": "stateConfiguration",
+      "relationshipName": "state",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

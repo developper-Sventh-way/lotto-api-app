@@ -1,0 +1,26 @@
+{
+  "lottoApiApp": {
+    "entreprisePlanPermission": {
+      "home": {
+        "title": "Entreprise Plan Permissions",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Entreprise Plan Permission",
+        "createOrEditLabel": "Create or edit a Entreprise Plan Permission",
+        "notFound": "No Entreprise Plan Permissions found"
+      },
+      "created": "A new Entreprise Plan Permission is created with identifier {{ param }}",
+      "updated": "A Entreprise Plan Permission is updated with identifier {{ param }}",
+      "deleted": "A Entreprise Plan Permission is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Entreprise Plan Permission {{ id }}?"
+      },
+      "detail": {
+        "title": "Entreprise Plan Permission"
+      },
+      "id": "ID",
+      "description": "Description",
+      "entreprisePlan": "Entreprise Plan",
+      "state": "State"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity EntreprisePlanPermission.
+    -->
+    <changeSet id="20230303214809-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="entreprise_plan_id"
+                                 baseTableName="entreprise_plan_permission"
+                                 constraintName="fk_entreprise_plan_permission__entreprise_plan_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="entreprise_plan"/>
+
+        <addForeignKeyConstraint baseColumnNames="state_id"
+                                 baseTableName="entreprise_plan_permission"
+                                 constraintName="fk_entreprise_plan_permission__state_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="state"/>
+    </changeSet>
+</databaseChangeLog>

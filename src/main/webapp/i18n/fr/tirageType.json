@@ -1,0 +1,11 @@
+{
+  "lottoApiApp": {
+    "TirageType": {
+      "null": "",
+      "MATIN": "MATIN",
+      "MIDI": "MIDI",
+      "APRESMIDI": "APRESMIDI",
+      "SOIR": "SOIR"
+    }
+  }
+}

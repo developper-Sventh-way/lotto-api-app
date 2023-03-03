@@ -1,0 +1,91 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-state-configuration-chad-heading"
+        data-cy="StateConfigurationCreateUpdateHeading"
+        jhiTranslate="lottoApiApp.stateConfiguration.home.createOrEditLabel"
+      >
+        Create or edit a State Configuration
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="lottoApiApp.stateConfiguration.startHour" for="field_startHour">Start Hour</label>
+          <input type="text" class="form-control" name="startHour" id="field_startHour" data-cy="startHour" formControlName="startHour" />
+          <div *ngIf="editForm.get('startHour')!.invalid && (editForm.get('startHour')!.dirty || editForm.get('startHour')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('startHour')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="lottoApiApp.stateConfiguration.endHour" for="field_endHour">End Hour</label>
+          <input type="text" class="form-control" name="endHour" id="field_endHour" data-cy="endHour" formControlName="endHour" />
+          <div *ngIf="editForm.get('endHour')!.invalid && (editForm.get('endHour')!.dirty || editForm.get('endHour')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('endHour')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="lottoApiApp.stateConfiguration.statut" for="field_statut">Statut</label>
+          <select class="form-control" name="statut" formControlName="statut" id="field_statut" data-cy="statut">
+            <option [ngValue]="null">{{ 'lottoApiApp.ConfigStatut.null' | translate }}</option>
+            <option *ngFor="let configStatut of configStatutValues" [value]="configStatut">
+              {{ 'lottoApiApp.ConfigStatut.' + configStatut | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="lottoApiApp.stateConfiguration.state" for="field_state">State</label>
+          <select
+            class="form-control"
+            id="field_state"
+            data-cy="state"
+            name="state"
+            formControlName="state"
+            [compareWith]="compareStateChad"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="stateOption" *ngFor="let stateOption of statesSharedCollection">{{ stateOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

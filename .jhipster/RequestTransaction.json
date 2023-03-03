@@ -1,0 +1,39 @@
+{
+  "angularJSSuffix": "chad",
+  "applications": "*",
+  "changelogDate": "20230303214814",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "request_transaction",
+  "fields": [
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dateTransaction",
+      "fieldType": "Instant"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "RequestTransaction",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "entreprisePlanSale",
+      "otherEntityRelationshipName": "requestTransaction",
+      "relationshipName": "entreprisePlanSale",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "entreprise",
+      "otherEntityRelationshipName": "requestTransaction",
+      "relationshipName": "entreprise",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

@@ -1,0 +1,32 @@
+{
+  "lottoApiApp": {
+    "dayTirage": {
+      "home": {
+        "title": "Day Tirages",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Day Tirage",
+        "createOrEditLabel": "Crear o editar Day Tirage",
+        "notFound": "Ningún Day Tirages encontrado"
+      },
+      "created": "Un nuevo Day Tirage ha sido creado con el identificador {{ param }}",
+      "updated": "Un Day Tirage ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Day Tirage ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Day Tirage {{ id }}?"
+      },
+      "detail": {
+        "title": "Day Tirage"
+      },
+      "id": "ID",
+      "tirageType": "Tirage Type",
+      "dateInString": "Date In String",
+      "premierLot": "Premier Lot",
+      "deuxiemeLot": "Deuxieme Lot",
+      "troisiemeLot": "Troisieme Lot",
+      "pic3": "Pic 3",
+      "win4": "Win 4",
+      "dateTransaction": "Date Transaction",
+      "state": "State"
+    }
+  }
+}

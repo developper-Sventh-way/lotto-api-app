@@ -1,0 +1,131 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-entreprise-plan-sale-chad-heading"
+        data-cy="EntreprisePlanSaleCreateUpdateHeading"
+        jhiTranslate="lottoApiApp.entreprisePlanSale.home.createOrEditLabel"
+      >
+        Create or edit a Entreprise Plan Sale
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="lottoApiApp.entreprisePlanSale.token" for="field_token">Token</label>
+          <input type="text" class="form-control" name="token" id="field_token" data-cy="token" formControlName="token" />
+          <div *ngIf="editForm.get('token')!.invalid && (editForm.get('token')!.dirty || editForm.get('token')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('token')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="lottoApiApp.entreprisePlanSale.startDate" for="field_startDate">Start Date</label>
+          <div class="d-flex">
+            <input
+              id="field_startDate"
+              data-cy="startDate"
+              type="datetime-local"
+              class="form-control"
+              name="startDate"
+              formControlName="startDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="lottoApiApp.entreprisePlanSale.expirateDate" for="field_expirateDate"
+            >Expirate Date</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_expirateDate"
+              data-cy="expirateDate"
+              type="datetime-local"
+              class="form-control"
+              name="expirateDate"
+              formControlName="expirateDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="lottoApiApp.entreprisePlanSale.statut" for="field_statut">Statut</label>
+          <select class="form-control" name="statut" formControlName="statut" id="field_statut" data-cy="statut">
+            <option [ngValue]="null">{{ 'lottoApiApp.PlanStatut.null' | translate }}</option>
+            <option *ngFor="let planStatut of planStatutValues" [value]="planStatut">
+              {{ 'lottoApiApp.PlanStatut.' + planStatut | translate }}
+            </option>
+          </select>
+          <div *ngIf="editForm.get('statut')!.invalid && (editForm.get('statut')!.dirty || editForm.get('statut')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('statut')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="lottoApiApp.entreprisePlanSale.entreprise" for="field_entreprise">Entreprise</label>
+          <select
+            class="form-control"
+            id="field_entreprise"
+            data-cy="entreprise"
+            name="entreprise"
+            formControlName="entreprise"
+            [compareWith]="compareEntrepriseChad"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="entrepriseOption" *ngFor="let entrepriseOption of entreprisesSharedCollection">
+              {{ entrepriseOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="lottoApiApp.entreprisePlanSale.entreprisePlan" for="field_entreprisePlan"
+            >Entreprise Plan</label
+          >
+          <select
+            class="form-control"
+            id="field_entreprisePlan"
+            data-cy="entreprisePlan"
+            name="entreprisePlan"
+            formControlName="entreprisePlan"
+            [compareWith]="compareEntreprisePlanChad"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="entreprisePlanOption" *ngFor="let entreprisePlanOption of entreprisePlansSharedCollection">
+              {{ entreprisePlanOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

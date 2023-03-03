@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="entreprisePlanPermission">
+      <h2 data-cy="entreprisePlanPermissionDetailsHeading">
+        <span jhiTranslate="lottoApiApp.entreprisePlanPermission.detail.title">Entreprise Plan Permission</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ entreprisePlanPermission.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="lottoApiApp.entreprisePlanPermission.description">Description</span></dt>
+        <dd>
+          <span>{{ entreprisePlanPermission.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="lottoApiApp.entreprisePlanPermission.entreprisePlan">Entreprise Plan</span></dt>
+        <dd>
+          <div *ngIf="entreprisePlanPermission.entreprisePlan">
+            <a [routerLink]="['/entreprise-plan-chad', entreprisePlanPermission.entreprisePlan.id, 'view']">{{
+              entreprisePlanPermission.entreprisePlan.id
+            }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="lottoApiApp.entreprisePlanPermission.state">State</span></dt>
+        <dd>
+          <div *ngIf="entreprisePlanPermission.state">
+            <a [routerLink]="['/state-chad', entreprisePlanPermission.state.id, 'view']">{{ entreprisePlanPermission.state.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button
+        type="button"
+        [routerLink]="['/entreprise-plan-permission-chad', entreprisePlanPermission.id, 'edit']"
+        class="btn btn-primary"
+      >
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

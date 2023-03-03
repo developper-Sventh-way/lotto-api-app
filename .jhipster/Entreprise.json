@@ -1,0 +1,48 @@
+{
+  "angularJSSuffix": "chad",
+  "applications": "*",
+  "changelogDate": "20230303214807",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "entreprise",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "representant",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "cin",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nif",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Entreprise",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "entreprisePlanSale",
+      "otherEntityRelationshipName": "entreprise",
+      "relationshipName": "entreprisePlanSale",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "requestTransaction",
+      "otherEntityRelationshipName": "entreprise",
+      "relationshipName": "requestTransaction",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

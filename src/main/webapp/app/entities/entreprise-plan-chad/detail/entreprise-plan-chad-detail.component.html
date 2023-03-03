@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="entreprisePlan">
+      <h2 data-cy="entreprisePlanDetailsHeading"><span jhiTranslate="lottoApiApp.entreprisePlan.detail.title">Entreprise Plan</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ entreprisePlan.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="lottoApiApp.entreprisePlan.prix">Prix</span></dt>
+        <dd>
+          <span>{{ entreprisePlan.prix }}</span>
+        </dd>
+        <dt><span jhiTranslate="lottoApiApp.entreprisePlan.name">Name</span></dt>
+        <dd>
+          <span>{{ entreprisePlan.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="lottoApiApp.entreprisePlan.type">Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'lottoApiApp.TypePlan.' + entreprisePlan.type }}">{{ entreprisePlan.type }}</span>
+        </dd>
+        <dt><span jhiTranslate="lottoApiApp.entreprisePlan.avantage">Avantage</span></dt>
+        <dd>
+          <span>{{ entreprisePlan.avantage }}</span>
+        </dd>
+        <dt><span jhiTranslate="lottoApiApp.entreprisePlan.requestPerDay">Request Per Day</span></dt>
+        <dd>
+          <span>{{ entreprisePlan.requestPerDay }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/entreprise-plan-chad', entreprisePlan.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

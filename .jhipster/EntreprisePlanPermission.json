@@ -1,0 +1,34 @@
+{
+  "angularJSSuffix": "chad",
+  "applications": "*",
+  "changelogDate": "20230303214809",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "entreprise_plan_permission",
+  "fields": [
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "EntreprisePlanPermission",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "entreprisePlan",
+      "otherEntityRelationshipName": "entreprisePlanPermission",
+      "relationshipName": "entreprisePlan",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "state",
+      "otherEntityRelationshipName": "entreprisePlanPermission",
+      "relationshipName": "state",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}
