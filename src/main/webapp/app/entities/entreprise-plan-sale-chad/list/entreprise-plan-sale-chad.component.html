@@ -1,0 +1,151 @@
+<div>
+  <h2 id="page-heading" data-cy="EntreprisePlanSaleHeading">
+    <span jhiTranslate="lottoApiApp.entreprisePlanSale.home.title">Entreprise Plan Sales</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="lottoApiApp.entreprisePlanSale.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-entreprise-plan-sale-chad"
+        [routerLink]="['/entreprise-plan-sale-chad/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="lottoApiApp.entreprisePlanSale.home.createLabel"> Create a new Entreprise Plan Sale </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="entreprisePlanSales?.length === 0">
+    <span jhiTranslate="lottoApiApp.entreprisePlanSale.home.notFound">No Entreprise Plan Sales found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="entreprisePlanSales && entreprisePlanSales.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="token">
+            <div class="d-flex">
+              <span jhiTranslate="lottoApiApp.entreprisePlanSale.token">Token</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="startDate">
+            <div class="d-flex">
+              <span jhiTranslate="lottoApiApp.entreprisePlanSale.startDate">Start Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="expirateDate">
+            <div class="d-flex">
+              <span jhiTranslate="lottoApiApp.entreprisePlanSale.expirateDate">Expirate Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="statut">
+            <div class="d-flex">
+              <span jhiTranslate="lottoApiApp.entreprisePlanSale.statut">Statut</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="entreprise.id">
+            <div class="d-flex">
+              <span jhiTranslate="lottoApiApp.entreprisePlanSale.entreprise">Entreprise</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="entreprisePlan.id">
+            <div class="d-flex">
+              <span jhiTranslate="lottoApiApp.entreprisePlanSale.entreprisePlan">Entreprise Plan</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let entreprisePlanSale of entreprisePlanSales; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/entreprise-plan-sale-chad', entreprisePlanSale.id, 'view']">{{ entreprisePlanSale.id }}</a>
+          </td>
+          <td>{{ entreprisePlanSale.token }}</td>
+          <td>{{ entreprisePlanSale.startDate | formatMediumDatetime }}</td>
+          <td>{{ entreprisePlanSale.expirateDate | formatMediumDatetime }}</td>
+          <td jhiTranslate="{{ 'lottoApiApp.PlanStatut.' + entreprisePlanSale.statut }}">{{ entreprisePlanSale.statut }}</td>
+          <td>
+            <div *ngIf="entreprisePlanSale.entreprise">
+              <a [routerLink]="['/entreprise-chad', entreprisePlanSale.entreprise.id, 'view']">{{ entreprisePlanSale.entreprise.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="entreprisePlanSale.entreprisePlan">
+              <a [routerLink]="['/entreprise-plan-chad', entreprisePlanSale.entreprisePlan.id, 'view']">{{
+                entreprisePlanSale.entreprisePlan.id
+              }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/entreprise-plan-sale-chad', entreprisePlanSale.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/entreprise-plan-sale-chad', entreprisePlanSale.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(entreprisePlanSale)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="entreprisePlanSales && entreprisePlanSales.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

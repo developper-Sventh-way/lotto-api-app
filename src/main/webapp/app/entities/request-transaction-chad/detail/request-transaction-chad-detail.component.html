@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="requestTransaction">
+      <h2 data-cy="requestTransactionDetailsHeading">
+        <span jhiTranslate="lottoApiApp.requestTransaction.detail.title">Request Transaction</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ requestTransaction.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="lottoApiApp.requestTransaction.description">Description</span></dt>
+        <dd>
+          <span>{{ requestTransaction.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="lottoApiApp.requestTransaction.dateTransaction">Date Transaction</span></dt>
+        <dd>
+          <span>{{ requestTransaction.dateTransaction | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="lottoApiApp.requestTransaction.entreprisePlanSale">Entreprise Plan Sale</span></dt>
+        <dd>
+          <div *ngIf="requestTransaction.entreprisePlanSale">
+            <a [routerLink]="['/entreprise-plan-sale-chad', requestTransaction.entreprisePlanSale.id, 'view']">{{
+              requestTransaction.entreprisePlanSale.id
+            }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="lottoApiApp.requestTransaction.entreprise">Entreprise</span></dt>
+        <dd>
+          <div *ngIf="requestTransaction.entreprise">
+            <a [routerLink]="['/entreprise-chad', requestTransaction.entreprise.id, 'view']">{{ requestTransaction.entreprise.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/request-transaction-chad', requestTransaction.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+{
+  "lottoApiApp": {
+    "entreprisePlanSale": {
+      "home": {
+        "title": "EntreprisePlanSales",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Entreprise Plan Sale",
+        "createOrEditLabel": "Créer ou éditer un Entreprise Plan Sale",
+        "notFound": "Aucun Entreprise Plan Sale trouvé"
+      },
+      "created": "Un nouveau Entreprise Plan Sale a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Entreprise Plan Sale avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Entreprise Plan Sale avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Entreprise Plan Sale {{ id }} ?"
+      },
+      "detail": {
+        "title": "Entreprise Plan Sale"
+      },
+      "id": "ID",
+      "token": "Token",
+      "startDate": "Start Date",
+      "expirateDate": "Expirate Date",
+      "statut": "Statut",
+      "requestTransaction": "Request Transaction",
+      "entreprise": "Entreprise",
+      "entreprisePlan": "Entreprise Plan"
+    }
+  }
+}

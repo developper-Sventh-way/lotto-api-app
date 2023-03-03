@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="entreprisePlanSale">
+      <h2 data-cy="entreprisePlanSaleDetailsHeading">
+        <span jhiTranslate="lottoApiApp.entreprisePlanSale.detail.title">Entreprise Plan Sale</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ entreprisePlanSale.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="lottoApiApp.entreprisePlanSale.token">Token</span></dt>
+        <dd>
+          <span>{{ entreprisePlanSale.token }}</span>
+        </dd>
+        <dt><span jhiTranslate="lottoApiApp.entreprisePlanSale.startDate">Start Date</span></dt>
+        <dd>
+          <span>{{ entreprisePlanSale.startDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="lottoApiApp.entreprisePlanSale.expirateDate">Expirate Date</span></dt>
+        <dd>
+          <span>{{ entreprisePlanSale.expirateDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="lottoApiApp.entreprisePlanSale.statut">Statut</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'lottoApiApp.PlanStatut.' + entreprisePlanSale.statut }}">{{ entreprisePlanSale.statut }}</span>
+        </dd>
+        <dt><span jhiTranslate="lottoApiApp.entreprisePlanSale.entreprise">Entreprise</span></dt>
+        <dd>
+          <div *ngIf="entreprisePlanSale.entreprise">
+            <a [routerLink]="['/entreprise-chad', entreprisePlanSale.entreprise.id, 'view']">{{ entreprisePlanSale.entreprise.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="lottoApiApp.entreprisePlanSale.entreprisePlan">Entreprise Plan</span></dt>
+        <dd>
+          <div *ngIf="entreprisePlanSale.entreprisePlan">
+            <a [routerLink]="['/entreprise-plan-chad', entreprisePlanSale.entreprisePlan.id, 'view']">{{
+              entreprisePlanSale.entreprisePlan.id
+            }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/entreprise-plan-sale-chad', entreprisePlanSale.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

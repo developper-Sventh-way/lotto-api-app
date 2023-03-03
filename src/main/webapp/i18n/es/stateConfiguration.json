@@ -1,0 +1,27 @@
+{
+  "lottoApiApp": {
+    "stateConfiguration": {
+      "home": {
+        "title": "State Configurations",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo State Configuration",
+        "createOrEditLabel": "Crear o editar State Configuration",
+        "notFound": "Ningún State Configurations encontrado"
+      },
+      "created": "Un nuevo State Configuration ha sido creado con el identificador {{ param }}",
+      "updated": "Un State Configuration ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un State Configuration ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar State Configuration {{ id }}?"
+      },
+      "detail": {
+        "title": "State Configuration"
+      },
+      "id": "ID",
+      "startHour": "Start Hour",
+      "endHour": "End Hour",
+      "statut": "Statut",
+      "state": "State"
+    }
+  }
+}

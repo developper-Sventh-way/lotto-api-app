@@ -1,0 +1,30 @@
+{
+  "lottoApiApp": {
+    "entreprisePlan": {
+      "home": {
+        "title": "Entreprise Plans",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Entreprise Plan",
+        "createOrEditLabel": "Create or edit a Entreprise Plan",
+        "notFound": "No Entreprise Plans found"
+      },
+      "created": "A new Entreprise Plan is created with identifier {{ param }}",
+      "updated": "A Entreprise Plan is updated with identifier {{ param }}",
+      "deleted": "A Entreprise Plan is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Entreprise Plan {{ id }}?"
+      },
+      "detail": {
+        "title": "Entreprise Plan"
+      },
+      "id": "ID",
+      "prix": "Prix",
+      "name": "Name",
+      "type": "Type",
+      "avantage": "Avantage",
+      "requestPerDay": "Request Per Day",
+      "entreprisePlanSale": "Entreprise Plan Sale",
+      "entreprisePlanPermission": "Entreprise Plan Permission"
+    }
+  }
+}

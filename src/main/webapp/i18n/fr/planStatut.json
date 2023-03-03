@@ -1,0 +1,9 @@
+{
+  "lottoApiApp": {
+    "PlanStatut": {
+      "null": "",
+      "Active": "Active",
+      "Expired": "Expired"
+    }
+  }
+}

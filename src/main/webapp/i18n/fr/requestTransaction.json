@@ -1,0 +1,27 @@
+{
+  "lottoApiApp": {
+    "requestTransaction": {
+      "home": {
+        "title": "RequestTransactions",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Request Transaction",
+        "createOrEditLabel": "Créer ou éditer un Request Transaction",
+        "notFound": "Aucun Request Transaction trouvé"
+      },
+      "created": "Un nouveau Request Transaction a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Request Transaction avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Request Transaction avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Request Transaction {{ id }} ?"
+      },
+      "detail": {
+        "title": "Request Transaction"
+      },
+      "id": "ID",
+      "description": "Description",
+      "dateTransaction": "Date Transaction",
+      "entreprisePlanSale": "Entreprise Plan Sale",
+      "entreprise": "Entreprise"
+    }
+  }
+}

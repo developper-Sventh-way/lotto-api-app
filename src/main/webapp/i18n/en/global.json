@@ -7,6 +7,14 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
+        "entrepriseChad": "Entreprise",
+        "entreprisePlanChad": "Entreprise Plan",
+        "entreprisePlanPermissionChad": "Entreprise Plan Permission",
+        "entreprisePlanSaleChad": "Entreprise Plan Sale",
+        "stateChad": "State",
+        "stateConfigurationChad": "State Configuration",
+        "dayTirageChad": "Day Tirage",
+        "requestTransactionChad": "Request Transaction",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

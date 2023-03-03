@@ -1,0 +1,54 @@
+{
+  "angularJSSuffix": "chad",
+  "applications": "*",
+  "changelogDate": "20230303214808",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "entreprise_plan",
+  "fields": [
+    {
+      "fieldName": "prix",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "TypePlan",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "Mensuel,Annuel,Trimestriel"
+    },
+    {
+      "fieldName": "avantage",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "requestPerDay",
+      "fieldType": "Long"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "EntreprisePlan",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "entreprisePlanSale",
+      "otherEntityRelationshipName": "entreprisePlan",
+      "relationshipName": "entreprisePlanSale",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "entreprisePlanPermission",
+      "otherEntityRelationshipName": "entreprisePlan",
+      "relationshipName": "entreprisePlanPermission",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

@@ -1,0 +1,58 @@
+{
+  "angularJSSuffix": "chad",
+  "applications": "*",
+  "changelogDate": "20230303214813",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "day_tirage",
+  "fields": [
+    {
+      "fieldName": "tirageType",
+      "fieldType": "TirageType",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "MATIN,MIDI,APRESMIDI,SOIR"
+    },
+    {
+      "fieldName": "dateInString",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "premierLot",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "deuxiemeLot",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "troisiemeLot",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pic3",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "win4",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateTransaction",
+      "fieldType": "Instant"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "DayTirage",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "state",
+      "otherEntityRelationshipName": "dayTirage",
+      "relationshipName": "state",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

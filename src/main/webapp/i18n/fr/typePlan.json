@@ -1,0 +1,10 @@
+{
+  "lottoApiApp": {
+    "TypePlan": {
+      "null": "",
+      "Mensuel": "Mensuel",
+      "Annuel": "Annuel",
+      "Trimestriel": "Trimestriel"
+    }
+  }
+}

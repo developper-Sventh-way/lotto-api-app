@@ -1,0 +1,55 @@
+{
+  "angularJSSuffix": "chad",
+  "applications": "*",
+  "changelogDate": "20230303214810",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "entreprise_plan_sale",
+  "fields": [
+    {
+      "fieldName": "token",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "startDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "expirateDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "statut",
+      "fieldType": "PlanStatut",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "Active,Expired"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "EntreprisePlanSale",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "requestTransaction",
+      "otherEntityRelationshipName": "entreprisePlanSale",
+      "relationshipName": "requestTransaction",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "entreprise",
+      "otherEntityRelationshipName": "entreprisePlanSale",
+      "relationshipName": "entreprise",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "entreprisePlan",
+      "otherEntityRelationshipName": "entreprisePlanSale",
+      "relationshipName": "entreprisePlan",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

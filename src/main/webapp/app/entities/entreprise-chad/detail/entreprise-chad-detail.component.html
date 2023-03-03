@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="entreprise">
+      <h2 data-cy="entrepriseDetailsHeading"><span jhiTranslate="lottoApiApp.entreprise.detail.title">Entreprise</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ entreprise.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="lottoApiApp.entreprise.name">Name</span></dt>
+        <dd>
+          <span>{{ entreprise.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="lottoApiApp.entreprise.representant">Representant</span></dt>
+        <dd>
+          <span>{{ entreprise.representant }}</span>
+        </dd>
+        <dt><span jhiTranslate="lottoApiApp.entreprise.cin">Cin</span></dt>
+        <dd>
+          <span>{{ entreprise.cin }}</span>
+        </dd>
+        <dt><span jhiTranslate="lottoApiApp.entreprise.nif">Nif</span></dt>
+        <dd>
+          <span>{{ entreprise.nif }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/entreprise-chad', entreprise.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
