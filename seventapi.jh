@@ -1,0 +1,119 @@
+entity Entreprise {
+	name String required
+    representant String required
+    cin String
+    nif String
+    
+}
+
+entity EntreprisePlan {
+	prix BigDecimal required
+	name String required
+    type TypePlan required
+    avantage String
+    requestPerDay Long
+}
+
+entity EntreprisePlanPermission {
+	description String
+}
+
+
+entity EntreprisePlanSale {
+	token String required
+	startDate Instant
+    expirateDate Instant
+    statut PlanStatut required
+}
+
+entity State {
+	name String required
+}
+
+entity StateConfiguration {
+	startHour String required
+    endHour String required
+    statut ConfigStatut
+}
+
+enum ConfigStatut {
+	ACTIVE, CLOSED
+}
+
+entity DayTirage {
+	tirageType TirageType required
+    dateInString String
+    premierLot String 
+    deuxiemeLot String
+    troisiemeLot String
+    pic3 String
+    win4 String
+    dateTransaction Instant
+}
+
+entity RequestTransaction {
+	description String required
+    dateTransaction Instant
+    
+}
+
+enum TirageType {
+	MATIN, MIDI, APRESMIDI, SOIR
+}
+
+enum TypePlan {
+	Mensuel, Annuel, Trimestriel
+}
+
+enum PlanStatut {
+	Active, Expired
+}
+
+relationship OneToMany {
+	Entreprise to EntreprisePlanSale
+}
+
+relationship OneToMany {
+	EntreprisePlan to EntreprisePlanSale
+}
+
+
+relationship OneToMany {
+	EntreprisePlan to EntreprisePlanPermission
+}
+
+relationship OneToMany {
+	State to EntreprisePlanPermission
+}
+
+relationship OneToMany {
+	State to StateConfiguration
+}
+
+relationship OneToMany {
+	State to DayTirage
+}
+
+relationship OneToMany {
+	EntreprisePlanSale to RequestTransaction
+}
+
+relationship OneToMany {
+	Entreprise to RequestTransaction
+}
+
+// Set pagination options
+paginate all with pagination
+
+// Use Data Transfer Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+angularSuffix * with chad
+
+
+
+    
